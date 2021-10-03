@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>AR sample</title>
+  </head>
+  <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+  <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+  <body>
+    <a-scene
+      embedded
+      arjs="sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;"
+    >
+      <a-assets>
+        <a-asset-item
+          id="wolf"
+          src="assets/Wolf-Blender-2.82a.glb"
+        ></a-asset-item>
+      </a-assets>
+
+      <a-marker preset="custom" type="pattern" url="assets/pattern-biz.patt">
+        <a-entity
+          id="model"
+          gltf-model="#wolf"
+          position="0 -3 1"
+          scale="2 2 2"
+          rotation="0 -90 60"
+        >
+        </a-entity>
+      </a-marker>
+      <a-entity camera></a-entity>
+    </a-scene>
+  </body>
+</html>
